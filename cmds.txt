@@ -1,0 +1,14 @@
+**********Para las migraciones**********
+
+npm run typeorm migration:create -- -n "nombre_de_migracion" -d ./src/migration
+npm run typeorm migration:run
+npm run typeorm migration:revert
+
+****************************************
+
+**********Para crear componentes nest**********
+nest g module nombreModulo
+nest g controller nombreControlador
+nest g service nombreServicio
+
+***********************************************
