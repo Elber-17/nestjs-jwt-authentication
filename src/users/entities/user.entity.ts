@@ -5,10 +5,27 @@ import {
     DeleteDateColumn,
     CreateDateColumn,
     UpdateDateColumn,
+    BeforeInsert,
 } from 'typeorm';
+import { hashSync } from 'bcrypt';
+import { config } from 'dotenv';
+
+config();
 
 @Entity()
 export class User {
+    constructor(columns: any) {
+        for (let column in columns) {
+            this[column] = columns[column];
+        }
+    }
+
+    // hash plain password
+    @BeforeInsert()
+    updateDates() {
+        this.password = hashSync(this.password, +process.env.BCRYPT_SALT);
+    }
+
     @PrimaryGeneratedColumn({ type: 'integer' })
     id: number;
 
@@ -32,10 +49,4 @@ export class User {
 
     @DeleteDateColumn({ nullable: true })
     delete_at: Date;
-
-    constructor(columns: any) {
-        for (let column in columns) {
-            this[column] = columns[column];
-        }
-    }
 }
