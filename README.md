@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository and basic jwt authentication, for sql databases.
 
 ## Installation
 
@@ -33,6 +33,21 @@ $ npm install
 ```
 
 ## Running the app
+
+`````bash
+# create the database
+$ sqlite3 db
+
+SQLite version 3.36.0 2021-06-18 18:36:39
+Enter ".help" for usage hints.
+sqlite>;
+
+And press enter after typing semicolon for create the database.
+
+````bash
+# run the migrations
+$ npm run typeorm migration:run
+
 
 ```bash
 # development
@@ -43,7 +58,7 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-```
+`````
 
 ## Test
 
@@ -64,9 +79,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+-   Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+-   Website - [https://nestjs.com](https://nestjs.com/)
+-   Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
